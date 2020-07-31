@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B963C27-3789-4AFB-B7A3-E5D4D53CBF82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DndCharGen</RootNamespace>
+    <AssemblyName>DndCharGen</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Base\Character\CharacterSheetAccessors\AbilityScoreAccessor.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\CharacterSheetAccessor.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\ClassInformationAccessor.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\CombatValueAccessor.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\Conditions\CharacterSheetCondition.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\Conditions\GenericCondition.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\Conditions\ICondition.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\Conditions\ListSearchCondition.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\Conditions\Operator.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\Conditions\OrCondition.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\ProficiencyAccessor.cs" />
+    <Compile Include="Base\Character\CharacterSheetAccessors\SpellListAccessor.cs" />
+    <Compile Include="Base\SourceData\CharacterSheetAreas\ClassInformation.cs" />
+    <Compile Include="Base\SourceData\CharacterSheetAreas\CombatValues.cs" />
+    <Compile Include="Base\SourceData\CharacterSheetAreas\Proficiencies.cs" />
+    <Compile Include="Base\SourceData\Feats\Objects\FeatObjects.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\VariantHumanASI.cs" />
+    <Compile Include="Base\User.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\IPromptedTask.cs" />
+    <Compile Include="Workflow\PromptedTasks\Tasks\AbilitySelector.xaml.cs">
+      <DependentUpon>AbilitySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\CantripSelector.xaml.cs">
+      <DependentUpon>CantripSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\DraconicAncestrySelector.xaml.cs">
+      <DependentUpon>DraconicAncestrySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\FeatSelector.xaml.cs">
+      <DependentUpon>FeatSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\LanguageSelector.xaml.cs">
+      <DependentUpon>LanguageSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\ManeuverSelector.xaml.cs">
+      <DependentUpon>ManeuverSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\FeatTasks\SkilledFeatProficiencySelector.xaml.cs">
+      <DependentUpon>SkilledFeatProficiencySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\SkillSelector.xaml.cs">
+      <DependentUpon>SkillSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\SpellSelector.xaml.cs">
+      <DependentUpon>SpellSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PromptedTasks\Tasks\WeaponProficiencySelector.xaml.cs">
+      <DependentUpon>WeaponProficiencySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowConstants.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\Character\AbilityScore.cs" />
+    <Compile Include="Base\SourceData\Allignment\AuthorityAllignment.cs" />
+    <Compile Include="Base\SourceData\Allignment\MoralityAlignment.cs" />
+    <Compile Include="Base\SourceData\Backgrounds\Background.cs" />
+    <Compile Include="Base\Character\CharacterSheet.cs" />
+    <Compile Include="Base\Character\ProficientValue.cs" />
+    <Compile Include="Base\SourceData\CharacterSheetAreas\AbilityScores.cs" />
+    <Compile Include="Base\SourceData\CharacterSheetAreas\Skills.cs" />
+    <Compile Include="Base\SourceData\Classes\CharacterClass.cs" />
+    <Compile Include="Base\SourceData\Equipment\Armor\Armor.cs" />
+    <Compile Include="Base\SourceData\Equipment\Armor\ArmorProficiencies.cs" />
+    <Compile Include="Base\SourceData\Equipment\Equipment.cs" />
+    <Compile Include="Base\SourceData\Equipment\Weapons\Property.cs" />
+    <Compile Include="Base\SourceData\Equipment\Weapons\PropertyLibrary.cs" />
+    <Compile Include="Base\SourceData\Equipment\Weapons\Weapon.cs" />
+    <Compile Include="Base\SourceData\Equipment\Weapons\WeaponProficiencies.cs" />
+    <Compile Include="Base\SourceData\Feats\Feat.cs" />
+    <Compile Include="Base\SourceData\Items\Item.cs" />
+    <Compile Include="Base\SourceData\Items\Tools\Tool.cs" />
+    <Compile Include="Base\SourceData\Items\Tools\Objects\ToolObjects.cs" />
+    <Compile Include="Base\SourceData\Languages\Language.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\AbilityScoreIncrease.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\BaseDragonbornASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\BaseGnomeASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\ForestGnomeASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\HalfElfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\HalfOrcASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\HumanASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\LightfootHalflingASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\BaseDwarfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\BaseElfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\BaseHalflingASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\DarkElfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\HighElfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\HillDwarfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\MountainDwarfASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\RockGnomeASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\StoutHalflingASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\TieflingASI.cs" />
+    <Compile Include="Base\SourceData\Races\AbilityScoreIncreases\Objects\WoodElfASI.cs" />
+    <Compile Include="Base\SourceData\Races\Race.cs" />
+    <Compile Include="Base\SourceData\Races\Sizes\Size.cs" />
+    <Compile Include="Base\SourceData\Races\SubRaces\Objects\SubRaceObjects.cs" />
+    <Compile Include="Base\SourceData\Races\SubRaces\SubRace.cs" />
+    <Compile Include="Base\SourceData\Races\RaceTraits\Objects\TraitObjects.cs" />
+    <Compile Include="Base\SourceData\Races\RaceTraits\Trait.cs" />
+    <Compile Include="Base\SourceData\Spells\Spell.cs" />
+    <Compile Include="Tools\ImageFinder\BitmapImageFinder.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Workflow\PromptedTasks\Tasks\AbilitySelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\CantripSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\DraconicAncestrySelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\FeatSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\LanguageSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\ManeuverSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\FeatTasks\SkilledFeatProficiencySelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\SkillSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\SpellSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\PromptedTasks\Tasks\WeaponProficiencySelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Workflow\Steps\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base\SourceData\Races\RaceTraits\Objects\SourceData.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Tools\ImageFinder\Images\MainWindow\1200px-Dungeons_&amp;_Dragons_5th_Edition_logo.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Tools\ImageFinder\Images\MainWindow\2020-07-22 17_15_22-Dungeons &amp; Dragons Font.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
